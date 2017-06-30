@@ -6,13 +6,13 @@ from twilio.rest import TwilioRestClient
 with open('/Users/RyanRobertson21/PycharmProjects/CoolProjects/twilioAccountInfo') as f:
      info=f.read().splitlines()
 
-# Preset Valeus
+# Preset Values
 accountSID = info[0]
 authToken = info[1]
 myNumber = info[2]
 twilioNumber = info[3]
 
-# send text message from twilio to my number
+# Send message from twilio to my number
 def textmyself(message):
     twilioCli = TwilioRestClient(accountSID, authToken)
     twilioCli.messages.create(body=message, from_=twilioNumber, to=myNumber)
